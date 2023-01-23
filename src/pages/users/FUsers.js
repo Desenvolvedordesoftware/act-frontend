@@ -20,7 +20,7 @@ function FUsers() {
 
   const getUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:8800/users");
+      const res = await axios.get("http://ec2-18-231-63-200.sa-east-1.compute.amazonaws.com:8800/users");
       setUsers(res.data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));
     } catch (error) {
       toast.error(error);

@@ -191,7 +191,7 @@ const FromCompany = ({ getCompany, onEdit, setOnEdit }) => {
 
     if (onEdit) {
       await axios
-        .put("http://localhost:8800/company/" + onEdit.id, {
+        .put("http://ec2-18-231-63-200.sa-east-1.compute.amazonaws.com:8800/company/" + onEdit.id, {
           filial: user.filial.value,
           fantasia: user.fantasia.value,
           endereco: user.endereco.value,
@@ -214,7 +214,7 @@ const FromCompany = ({ getCompany, onEdit, setOnEdit }) => {
         .catch(({ data }) => toast.error(data));
     } else {
       await axios
-        .post("http://localhost:8800/company", {
+        .post("http://ec2-18-231-63-200.sa-east-1.compute.amazonaws.com:8800/company", {
           filial: user.filial.value,
           fantasia: user.fantasia.value,
           endereco: user.endereco.value,

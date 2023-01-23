@@ -30,7 +30,7 @@ function FProduct() {
 
   const getProduct = async () => {
     try {
-      const res = await axios.get("http://localhost:8800/Product");
+      const res = await axios.get("http://ec2-18-231-63-200.sa-east-1.compute.amazonaws.com:8800/Product");
       setProduct(res.data.sort((a, b) => (a.produto > b.produto ? 1 : -1)));
     } catch (error) {
       toast.error(error);
