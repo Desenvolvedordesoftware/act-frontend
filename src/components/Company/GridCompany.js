@@ -3,6 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 import { FaEdit, FaTrash } from "react-icons/fa"
 import { toast } from "react-toastify";
+import { url } from "../../components/Function/Function"
 
 
 
@@ -55,7 +56,7 @@ const GridCompany = ({ company, setCompany, setOnEdit, showSidebar }) => {
 
    const handleDelete = async (id) => {
     await axios
-     .delete("http://localhost:8800/Company/" + id)
+     .delete(url+"/Company/" + id)
      .then(({ data }) => {
         const newArray = company.filter((company) => company.id !== id);
 

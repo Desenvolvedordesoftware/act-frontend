@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import { url } from "../../components/Function/Function"
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -20,7 +21,7 @@ function FUsers() {
 
   const getUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:8800/users");
+      const res = await axios.get(url+"/users");
       setUsers(res.data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));
     } catch (error) {
       toast.error(error);

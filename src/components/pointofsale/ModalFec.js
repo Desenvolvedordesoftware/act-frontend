@@ -7,6 +7,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 import {nv} from "../../pages/PointOfSale/PonitOfSale";
+import { url } from "../../components/Function/Function";
 
 
 const StyleBox = {
@@ -169,7 +170,7 @@ export default function NestedModal({getPointofsale, onEdit, setOnEdit}) {
       
 
       await axios
-        .put("http://localhost:8800/Sale/" + cod, {
+        .put(url+"/Sale/" + cod, {
 
           codvenda: 1,
           codcaixa: Caixa,

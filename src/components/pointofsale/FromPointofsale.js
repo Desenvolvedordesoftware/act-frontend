@@ -7,6 +7,7 @@ import { StyledEngineProvider } from '@mui/material/styles';
 import { IdEmpresa } from "../Dashboard/Sidebar";
 import { nv } from "../../pages/PointOfSale/PonitOfSale";
 import ModalFec from './ModalFec'
+import { url } from "../../components/Function/Function";
 
 const FormContainer = styled.form`
   display: flex;
@@ -153,7 +154,7 @@ const FromPointofsale = ({ getPointofsale, onEdit, setOnEdit}) => {
         var Status ='';
 
         try {
-          const res = await axios.get("http://localhost:8800/productcodbarra/" + Codproduto);
+          const res = await axios.get(url+"/productcodbarra/" + Codproduto);
              
            if (res.data.length === 0) {
              return toast.warn("Código / Cód.Barra do produto incorreto ou não cadastrado!");
@@ -212,7 +213,7 @@ const FromPointofsale = ({ getPointofsale, onEdit, setOnEdit}) => {
       var Nfe = 'N';  
 
       try {
-        const res = await axios.get("http://localhost:8800/sale/" +nv);
+        const res = await axios.get(url+"/sale/" +nv);
          
          if (res.data.length === 0) {
             RestVenda = res.data.length;
@@ -226,7 +227,7 @@ const FromPointofsale = ({ getPointofsale, onEdit, setOnEdit}) => {
 
      if (RestVenda === 0) {
       await axios
-        .post("http://localhost:8800/Sale", {
+        .post(url+"/Sale", {
 
           codvenda: CodVenda,
           codcaixa: Caixa,
@@ -256,7 +257,7 @@ const FromPointofsale = ({ getPointofsale, onEdit, setOnEdit}) => {
       } else {
 
         await axios
-        .put("http://localhost:8800/Sale/" + CodVenda, {
+        .put(url+"/Sale/" + CodVenda, {
 
           codvenda: CodVenda,
           codcaixa: Caixa,
@@ -285,7 +286,7 @@ const FromPointofsale = ({ getPointofsale, onEdit, setOnEdit}) => {
 
       }
           await axios
-          .post("http://localhost:8800/Saleitems", {
+          .post(url+"/Saleitems", {
   
             codnota: CodVenda,
             codproduto: Codproduto,

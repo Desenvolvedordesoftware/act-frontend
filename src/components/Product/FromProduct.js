@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { toast } from "react-toastify";
+import { url } from "../../components/Function/Function"
 
 const FormContainer = styled.form`
   display: flex;
@@ -163,7 +164,7 @@ const FromProduct = ({ getProduct, onEdit, setOnEdit }) => {
 
     if (onEdit) {
       await axios
-        .put("http://localhost:8800/Product/" + onEdit.id, {
+        .put(url+"/Product/" + onEdit.id, {
           codbarra: user.codbarra.value,
           produto: user.produto.value, 
           unidade: user.unidade.value,
@@ -191,7 +192,7 @@ const FromProduct = ({ getProduct, onEdit, setOnEdit }) => {
         .catch(({ data }) => toast.error(data));
     } else {
       await axios
-        .post("http://localhost:8800/Product", {
+        .post(url+"/Product", {
           codbarra: user.codbarra.value,
           produto: user.produto.value, 
           unidade: user.unidade.value,

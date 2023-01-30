@@ -4,10 +4,10 @@ import { toast } from "react-toastify";
 
 export const AuthContext = createContext({});
 
-var Email = '';
-var Password = '';
-var Name = '';
-var Tokem = '';
+var Email = "";
+var Password = "";
+var Name = "";
+var Tokem = "";
 
 export const AuthProvider = ({ children }) => {
    const [user, setUser] = useState();
@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
       const handleSubmit = async () => {
 
          try {
-            const res = await axios.get("http://localhost:8800/auth/" + email);
+            const res = await axios.get("http://ec2-18-231-63-200.sa-east-1.compute.amazonaws.com:8800/auth/" + email);
 
 
             if (res.data.length === 0) {
@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
                      ]
                   )
                   Email = dados.email;
-                  Password = dados.password;
+                  Password = String(dados.password);
                   Name = dados.name;
                   Tokem = dados.token;
 
@@ -75,7 +75,7 @@ export const AuthProvider = ({ children }) => {
          } else {
             localStorage.removeItem("user_token");
             localStorage.removeItem("users_db");
-            return toast.warn("Falha de Autenticação!");
+            return toast.warn("Erro de Autenticação!");
          };
 
       };

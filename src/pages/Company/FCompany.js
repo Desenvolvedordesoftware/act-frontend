@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
 import Sidebar from "../../components/Dashboard/Sidebar";
+import { url } from "../../components/Function/Function"
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -28,7 +29,7 @@ function FCompany() {
 
   const getCompany = async () => {
     try {
-      const res = await axios.get("http://localhost:8800/company");
+      const res = await axios.get(url+"/company");
       setCompany(res.data.sort((a, b) => (a.filial > b.filial ? 1 : -1)));
     } catch (error) {
       toast.error(error);

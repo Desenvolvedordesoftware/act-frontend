@@ -8,6 +8,7 @@ import axios from "axios";
 import Sidebar from "../../components/Dashboard/Sidebar.js";
 import Fromproduct from "../../components/Product/FromProduct.js";
 import Gridproduct from "../../components/Product/GridProduct.js";
+import { url } from "../../components/Function/Function";
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -30,7 +31,7 @@ function FProduct() {
 
   const getProduct = async () => {
     try {
-      const res = await axios.get("http://localhost:8800/Product");
+      const res = await axios.get(url+"/Product");
       setProduct(res.data.sort((a, b) => (a.produto > b.produto ? 1 : -1)));
     } catch (error) {
       toast.error(error);

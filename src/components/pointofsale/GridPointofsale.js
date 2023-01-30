@@ -3,6 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 import { FaTrash } from "react-icons/fa"
 import { toast } from "react-toastify";
+import { url } from "../../components/Function/Function";
 
 
 
@@ -63,7 +64,7 @@ const GridPointofsale = ({ pointofsale, setPointofSale, setOnEdit }) => {
 
 const handleDelete = async (id) => {
   await axios
-   .delete("http://localhost:8800/Saleitems/" + id)
+   .delete(url+"/Saleitems/" + id)
    .then(({ data }) => {
       const newArray = pointofsale.filter((pointofsale) => pointofsale.id !== id);
       

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { toast } from "react-toastify";
+import { url } from "../../components/Function/Function"
 
 export const Page = styled.div`
 
@@ -191,7 +192,7 @@ const FromCompany = ({ getCompany, onEdit, setOnEdit }) => {
 
     if (onEdit) {
       await axios
-        .put("http://localhost:8800/company/" + onEdit.id, {
+        .put(url+"/company/" + onEdit.id, {
           filial: user.filial.value,
           fantasia: user.fantasia.value,
           endereco: user.endereco.value,
@@ -214,7 +215,7 @@ const FromCompany = ({ getCompany, onEdit, setOnEdit }) => {
         .catch(({ data }) => toast.error(data));
     } else {
       await axios
-        .post("http://localhost:8800/company", {
+        .post(url+"/company", {
           filial: user.filial.value,
           fantasia: user.fantasia.value,
           endereco: user.endereco.value,

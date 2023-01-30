@@ -8,7 +8,7 @@ import axios from "axios";
 import Sidebar from '../../components/Dashboard/Sidebar';
 import FromPointofsale from '../../components/pointofsale/FromPointofsale';
 import GridPointofsale from '../../components/pointofsale/GridPointofsale';
-import { ChaveVenda } from '../../components/Function/Function';
+import { ChaveVenda, url } from '../../components/Function/Function';
 
 
 const Page = styled.div`
@@ -142,7 +142,7 @@ const PonitOfSale = () => {
     codnota = nv;
 
     try {
-      const res = await axios.get("http://localhost:8800/saleitems/" +codnota);
+      const res = await axios.get(url+"/saleitems/" +codnota);
       setPointofSale(res.data.sort((a, b) => (a.id > b.id ? 1 : -1)));
     } catch (error) {
       toast.error(error);

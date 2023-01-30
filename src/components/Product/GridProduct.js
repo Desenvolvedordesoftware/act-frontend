@@ -3,6 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 import { FaEdit, FaTrash } from "react-icons/fa"
 import { toast } from "react-toastify";
+import { url } from "../../components/Function/Function"
 
 
 
@@ -58,7 +59,7 @@ const GridProduct = ({ product, setProduct, setOnEdit }) => {
 
    const handleDelete = async (id) => {
     await axios
-     .delete("http://localhost:8800/Product/" + id)
+     .delete(url+"/Product/" + id)
      .then(({ data }) => {
         const newArray = product.filter((product) => product.id !== id);
 
