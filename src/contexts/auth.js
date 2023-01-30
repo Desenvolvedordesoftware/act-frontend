@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
       const handleSubmit = async () => {
 
          try {
-            const res = await axios.get("http://ec2-18-231-63-200.sa-east-1.compute.amazonaws.com:8800/auth/" + email);
+            const res = await axios.get("http://localhost:8800/auth/" + email);
 
 
             if (res.data.length === 0) {

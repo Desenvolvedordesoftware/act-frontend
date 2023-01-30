@@ -133,7 +133,7 @@ const FromUsers = ({ getUsers, onEdit, setOnEdit }) => {
 
     if (onEdit) {
       await axios
-        .put("http://ec2-18-231-63-200.sa-east-1.compute.amazonaws.com:8800/users/" + onEdit.id, {
+        .put("http://localhost:8800/users/" + onEdit.id, {
           nome: user.nome.value,
           email: user.email.value,
           fone: user.fone.value,
@@ -146,7 +146,7 @@ const FromUsers = ({ getUsers, onEdit, setOnEdit }) => {
         .catch(({ data }) => toast.error(data));
     } else {
       await axios
-        .post("http://ec2-18-231-63-200.sa-east-1.compute.amazonaws.com:8800/users", {
+        .post("http://localhost:8800/users", {
           nome: user.nome.value,
           email: user.email.value,
           fone: user.fone.value,

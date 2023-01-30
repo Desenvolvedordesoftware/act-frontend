@@ -58,7 +58,7 @@ const GridProduct = ({ product, setProduct, setOnEdit }) => {
 
    const handleDelete = async (id) => {
     await axios
-     .delete("http://ec2-18-231-63-200.sa-east-1.compute.amazonaws.com:8800/Product/" + id)
+     .delete("http://localhost:8800/Product/" + id)
      .then(({ data }) => {
         const newArray = product.filter((product) => product.id !== id);
 
